@@ -34,12 +34,11 @@ resource "aws_instance" "blog" {
 module "blog" {
   source  = "terraform-aws-modules/security-group/aws"
   version = "4.16.2"
-  name        = "blog"
-  vpc_id = data.aws_vpc.default.id
+  name    = "blog"
+  vpc_id  = data.aws_vpc.default.id
 
-  egress_rules        = [ "all-all" ]
-  egress_cidr_blocks  = ["0.0.0.0/0"]
   ingress_rules       = ["http_80_tcp","https_80_tcp"]
   ingress_cidr_blocks = ["0.0.0.0/0"]
-
+  egress_rules        = [ "all-all" ]
+  egress_cidr_blocks  = ["0.0.0.0/0"]
 }
