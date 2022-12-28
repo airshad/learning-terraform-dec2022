@@ -38,8 +38,8 @@ module "blog" {
   vpc_id = data.aws_vpc.default.id
 
   egress_rules        = [ "all-all" ]
-  egress_cdir_blocks  = ["0.0.0.0/0"]
+  egress_cidr_blocks  = ["0.0.0.0/0"]
   ingress_rules       = ["http_80_tcp","https_80_tcp"]
-  ingress_cdir_blocks = ["0.0.0.0/0"]
+  ingress_cidr_blocks = ["0.0.0.0/0"]
 
 }
