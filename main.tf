@@ -34,7 +34,7 @@ module "blog_vpc" {
 module "autoscaling" {
   source   = "terraform-aws-modules/autoscaling/aws"
   version  = "6.7.0"
-  name     = "Created by Terraform"
+  name     = "blog"
   min_size = 1
   max_size = 2
 
@@ -45,9 +45,6 @@ module "autoscaling" {
   instance_type       = var.instance_type
 
 }
-
-
-
 
 // Load balancer Code for our instance
 module "blog_alb" {
