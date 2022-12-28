@@ -21,16 +21,16 @@ data "aws_vpc" "default" {
 resource "aws_instance" "blog" {
   ami                    = data.aws_ami.app_ami.id
   instance_type          = var.instance_type
-  vpc_security_group_ids = [module.blog_sg.security_group_id]
+  vpc_security_group_ids = [module.blog.security_group_id]
 
   tags = {
-    Name = "Learning Terraform"
+    Name = "CreatedByTF"
   }
 }
 
-module "blog_sg" {
+module "blog" {
   source  = "terraform-aws-modules/security-group/aws"
-  version = "4.13.0"
+  version = "4.16.2"
 
   vpc_id  = data.aws_vpc.default.id
   name    = "blog"
