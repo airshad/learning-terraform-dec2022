@@ -37,7 +37,7 @@ module "blog" {
   name    = "blog"
   vpc_id  = data.aws_vpc.default.id
 
-  ingress_rules       = ["http_80_tcp","https_80_tcp"]
+  ingress_rules       = ["http_80_tcp","https_443_tcp"]
   ingress_cidr_blocks = ["0.0.0.0/0"]
   egress_rules        = [ "all-all" ]
   egress_cidr_blocks  = ["0.0.0.0/0"]
